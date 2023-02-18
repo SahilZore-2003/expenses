@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+
+    <!-- navbar  -->
+    <nav>
+        <h3>Soham Chogale</h3>
+        <ul>
+            <a href="">
+                <li>Home</li>
+            </a>
+            <a href="">
+                <li>menu</li>
+            </a>
+            <a href="">
+                <li>section</li>
+            </a>
+            <a href="">
+                <li>contact us</li>
+            </a>
+
+            <i class="uil uil-times cross"></i>
+
+        </ul>
+        <i class="uil uil-list-ui-alt icon"></i>
+    </nav>
+    <!-- navbar ends  -->
+
+    <div class="container">
+        <div class="expense">
+            <form action="#" name="google-sheet" autocomplete="off">
+                <div class="datetime">
+                    <input type="text" name="date" id="date" readonly>
+                </div>
+                <div class="datetime">
+                    <input type="text" name="name" id="expenseName" placeholder="Enter expense name">
+                </div>
+                <div class="amount datetime">
+                    <input type="number" name="amount" id="Amount" placeholder="Amount">
+                    <i class="uil uil-rupee-sign rupee"></i>
+                </div>
+
+                <div class="btn">
+                    <input type="submit" value="ADD">
+                </div>
+            </form>
+
+            <div class="flex">
+                <a href="https://docs.google.com/spreadsheets/d/1FR0EU-cFveiJoONNQ0YQGmmf0ETlDio1ofV2eqrJ3dk/edit?usp=sharing">View Your Expenses</a>
+            </div>
+        </div>
+    </div>
+      
+    <footer>
+         <h3>Smart IT World</h3> 
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
