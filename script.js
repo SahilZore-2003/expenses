@@ -1,45 +1,83 @@
-const heading = document.querySelector('h3');
-const icon = document.querySelector('.icon');
-const uldiv = document.querySelector('ul');
-const cross = document.querySelector('.cross');
-icon.addEventListener("click" , ()=>{
-    uldiv.style.display = "block";
-    heading.style.display = "none";
-    icon.style.display = "none";
+const historyicon = document.getElementById('historyicon');
+const displayhistory = document.getElementsByClassName('displayhistory')[0];
+const history = document.getElementById('history');
+const myform = document.getElementById('myform');
+const text = document.getElementById('text');
+const amount = document.getElementById('amount');
+const income = document.getElementById('income');
+const expense = document.getElementById('expense');
+const incexp = document.getElementById('incexp');
+const balance = document.getElementById('balance');
+
+
+
+
+historyicon.addEventListener("click",()=>{
+    displayhistory.classList.toggle("view")
 })
-cross.addEventListener("click",()=>{
-    uldiv.style.display = "none";
-    heading.style.display = "block";
-    icon.style.display = "block";
-})
 
+myform.addEventListener('submit',(e)=>{
+    e.preventDefault();
 
-let datetime = ()=>{
-    let date = new Date();
-let day = date.getDate();
-let month = date.getMonth()+1;
-let year = date.getFullYear();
+    if(incexp.value == "income"){
+        let val = amount.value;
+        let existincome = income.innerText;
+        let totalincome = `${existincome}+${val}`;
+        let finalincome = eval(totalincome);
+        income.innerHTML = `<i class="uil uil-rupee-sign"></i>${finalincome}`;
 
-let hours = date.getHours();
-let miniutes = date.getMinutes();
-document.querySelector('#date').value = `${day}/${month}/${year} time:${hours}:${miniutes}`;
-}
+       history.innerHTML += `
+        <div class="item">
+        <span>${text.value}</span>
+        <span class="incomeborder">+${val}</span>
+        </div>
+        `;
+        
+    }
 
-setInterval(()=>{
- datetime();
-},1000)
+    if(incexp.value == "expense"){
+        let expenseval = amount.value;
+        let existexpense = expense.innerText;
+        let totalexpense = `${existexpense}+${expenseval}`;
+        let finalexpense = eval(totalexpense);
+        expense.innerHTML = `<i class="uil uil-rupee-sign"></i>${finalexpense}`;  
 
+        history.innerHTML += `
+        <div class="item">
+        <span>${text.value}</span>
+        <span class="expenseborder">-${expenseval}</span>
+        </div>
+        `;
+    }
 
+    let totalbalance = eval(income.innerText - expense.innerText);
+    balance.innerHTML = `<i class="uil uil-rupee-sign"></i>${totalbalance}`
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbw9IhaFaSLmwb67eGYWvvWgocxBUDqWDtTLOXV5AWRSqqr9VQLo8ABmM-6KOpbDajk/exec'
-const form = document.forms['google-sheet']
+    localStorage.setItem("balance",totalbalance);
+    localStorage.setItem("income",income.innerText);
+    localStorage.setItem("expense",expense.innerText);
+    localStorage.setItem("history",history.innerHTML);
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
     
-    .catch(error => console.error('Error!', error.message))
 
-    document.querySelector('#expenseName').value = "";
-    document.querySelector('#Amount').value = "";
+
+    myform.reset();
+    
 })
+
+window.onload = ()=>{
+    let reloadBalance = localStorage.getItem("balance");
+    balance.innerHTML = `<i class="uil uil-rupee-sign"></i>${reloadBalance}`
+
+    let reloadIncome = localStorage.getItem("income");
+    income.innerHTML = `<i class="uil uil-rupee-sign"></i>${reloadIncome}`
+
+    let reloadExpense = localStorage.getItem("expense");
+    expense.innerHTML = `<i class="uil uil-rupee-sign"></i>${reloadExpense}`
+
+  
+    let reloadHistory = localStorage.getItem("history");
+    history.innerHTML = reloadHistory;
+
+    
+}

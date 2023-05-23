@@ -1,215 +1,178 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', 'sans-serif';
+    font-family: 'Lato', sans-serif;
 }
 
-html {
-    font-size: 10px;
+body{
+    padding: 0 1.5rem;
+    background-color: rgba(255, 255, 255, 0.532);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-nav {
+.heading{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    background-color: #00a8ff;
+    font-weight: bolder;
+    padding: 10px 0;
+    border-bottom: .5px solid rgba(0,0,0,.5);
 }
 
-li {
-    list-style: none;
-    color: white;
-    /* padding: .5rem; */
-    padding: 0 .5rem;
-    transition: .3s all ease;
+#historyicon{
+    font-size: 1.8rem;
 }
 
-li:hover {
-    scale: 1.1;
-
+.balanceSection{
+    margin-top: 1rem;
+    font-weight: bold;
 }
 
-nav ul {
-    display: flex;
-    gap: 1rem;
+.balanceSection #balance{
     font-size: 2rem;
-    padding: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: capitalize;
-    transition: all 1s linear 1s;
-    color: white !important;
-
+    font-weight: bolder;
+    margin-top: 10px;
 }
 
-h3 {
-    font-size: 3rem;
-    padding: 1rem;
-    font-weight: bold;
-    display: flex;
+.balanceSection h2{
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+
+.incexpsection{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     align-items: center;
-    color: white;
-
-}
-
-a {
-    text-decoration: none;
-}
-
-.icon {
-    display: none;
-    font-size: 5rem;
-    font-weight: bold;
-    padding: 1rem;
-}
-
-a:hover {
-    border-bottom: 2px solid black;
-}
-
-.cross {
-    position: absolute;
-    top: 0;
-    right: 5%;
-    font-size: 5rem;
-    display: none;
-}
-
-@media(max-width:900px) {
-    nav ul {
-        margin-top: 3rem;
-        display: block;
-        height: 100vh;
-        width: 100%;
-        text-align: center;
-       
-        display: none;
-
-    }
-
-    nav ul li {
-        padding: 1rem;
-        font-size: 2rem;
-    }
-
-    nav ul a li {
-
-        font-size: 3rem;
-    }
-    .icon {
-        display: block;
-    }
-
-    h3 {
-        display: block;
-
-    }
-
-    .cross {
-
-        display: block;
-    }
-
-}
-
-
-.container{
-    width: 100%;
-    height: 100vh;
-    background-color:white;
-    
-}
-
-.expense{
- width: 95%;
- height: 80%;
- background-color:#7d5fff;
- border-radius: 1rem;
- padding: 2rem;
- margin: 2rem;
- box-shadow: 3px 5px 10px rgba(0,0,0,.7);
-}
-
-footer{
-    width: 100%;
-    height: 10vh;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    border-radius: 15px 15px 0 0;
-}
-
-footer h3{
- text-align: center;
- color: white;
-}
-
-
-.expense form{
-    padding: 2rem;
-}
-
-.expense form .datetime input{
-    margin: 1em;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 1rem;
     text-align: center;
-    font-size: 2rem;
-    border: none;
-    outline: none;
-}
-
-
-.expense form .datetime input:focus{
-    border: 2px solid #00a8ff;
-}
-
-.btn{
-    display: flex;
-    justify-content: center;
-}
-
-.btn input{
-    padding: 2rem;
-    background-color: #00a8ff;
+    background-color: white;
+    padding: 1rem;
+    margin: 15px 0;
+    border: .5px solid rgba(0,0,0,.7);
     border-radius: 10px;
-    width: 80%;
-
 }
 
-.btn input{
-    text-align: center;
+.incexpsection .expense{
+    border-left: 4px solid rgba(0,0,0,.5);
+}
+
+.incexpsection .income h2{
+    color: green;
+}
+
+.incexpsection .expense h2{
+    color: rgb(255, 0, 0);
+}
+
+.history{
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    padding: 10px;
+}
+form{
+    margin-top: 1rem;
+}
+
+form label{
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+form input{
+ display: block;
+ width: 100%;
+ margin-top: 10px;
+ padding: .8rem;
+ font-size: 1.2rem;
+ font-weight: bold;
+ transition: .2s linear;
+ outline-style:none ;
+ border-radius: .5px;
+}
+
+form input:hover{
+    border: 2px solid #5f5eab;
+}
+
+
+form button{
+ width: 100%;
+ display: block;
+ padding: 10px 0;
+ font-size: 1.5rem;
+ margin-top: 1rem;
+ background-color: #5f5eab;
+ color: white;
+ font-weight: bold;
+ border: none;
+ border-radius: 8px;
+}
+
+form p{
     font-weight: bold;
 }
 
-
-.amount{
-    position: relative;
-}
-
-.rupee{
-    position: absolute;
-    top:23%;
-    left:70%;
-    font-weight: bold;
-    font-size: 3rem;
-}
-
-.flex{
+#history .item{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px;
 }
 
-.flex a{
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    padding: 1rem;
-    background-color: black;
-    border-radius: 5px;
+.incomeborder{
+    border-right:4px solid green;
+    padding-right: 10px;
+}
 
+.expenseborder{
+    border-right:4px solid rgb(255, 2, 2);
+    padding-right: 10px;
+}
+
+
+#history{
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    background-color: white;
+    display:flex;
+    flex-direction: column-reverse;
+    transition: .3s  linear;
+}
+
+
+form select{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: 1px solid #5f5eab;
+    background-color: transparent;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+.displayhistory{
+    position: fixed;
+    top: 58.67px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+    transform: translateX(100%);
+    transition: .2s linear;
+}
+
+.view{
+    transform: translateX(0%);
 }
