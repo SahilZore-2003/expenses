@@ -13,7 +13,7 @@
 
 <body>
     <div class="heading">
-        <h1>Expense Tracker</h1>
+        <h1 id="head">Expense Tracker</h1>
         <i class="uil uil-history" id="historyicon"></i>
     </div>
 
@@ -41,17 +41,17 @@
 
 
     <h2 class="history">Add New Transition</h2>
-    <form action="#" id="myform">
+    <form action="#" id="myform" autocomplete="off">
         <select name="" id="incexp">
             <option value="income">income</option>
             <option value="expense">expense</option>
         </select>
-        <!-- <label for="text">Text</label> -->
+        
         <input type="text" name="" id="text" placeholder="Enter Text">
-        <!-- <p>Amount <br>(negative:expense positive:income)</p> -->
+        
 
 
-        <input type="text" name="" id="amount" placeholder="Enter Amount">
+        <input type="number" name="" id="amount" placeholder="Enter Amount">
         <button type="submit">Add Transaction</button>
     </form>
 

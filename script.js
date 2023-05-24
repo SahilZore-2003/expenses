@@ -8,7 +8,20 @@ const income = document.getElementById('income');
 const expense = document.getElementById('expense');
 const incexp = document.getElementById('incexp');
 const balance = document.getElementById('balance');
+const head = document.getElementById('head');
 
+
+head.addEventListener('click',()=>{
+    let resetData = confirm("are you sure to delete all data?");
+    console.log(resetData);
+    if(resetData){
+        localStorage.setItem("balance",0);
+        localStorage.setItem("income",0);
+        localStorage.setItem("expense",0);
+        localStorage.setItem("history","");
+        window.location.reload();
+    }
+})
 
 
 
@@ -66,6 +79,8 @@ myform.addEventListener('submit',(e)=>{
 })
 
 window.onload = ()=>{
+
+
     let reloadBalance = localStorage.getItem("balance");
     balance.innerHTML = `<i class="uil uil-rupee-sign"></i>${reloadBalance}`
 
